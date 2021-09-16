@@ -41,3 +41,11 @@ jobs:
           ls -ltra dist
           # aws s3 cp dist s3://prod-bucket --recursive
 
+      - name: archive production artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-without-markdown
+          path: |
+            dist
+            !dist/**/*.md
+
