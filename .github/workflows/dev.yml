@@ -41,6 +41,10 @@ jobs:
           ls -ltra dist
           # aws s3 cp dist s3://prod-bucket --recursive
 
+      - name: building docker
+        run: |
+          docker build -t test .
+
       - name: archive production artifacts
         uses: actions/upload-artifact@v2
         with:
