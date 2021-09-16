@@ -15,7 +15,9 @@ test:
    name: running a unit Test
     runs-on:ubuntu-latest
     
-     steps:
+    
+    
+      steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node_version }}
       uses: actions/setup-node@v1
@@ -24,7 +26,6 @@ test:
 
     - name:  install
       run: |npm install
-        
-  - name:  Test 
-    run: npm Test 
+    - name:  Test 
+      run: npm Test 
 
