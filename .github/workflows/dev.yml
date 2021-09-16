@@ -28,8 +28,16 @@ jobs:
           # select node version
           node-version: '14'
       
-      # run the app
-      - name: running app
+      - name: installing required packages
         run: |
-          node index.js
+          yarn install
+
+      - name: building for production
+        run: |
+          yarn build
+
+      - name: publishing the app to aws server
+        run: |
+          ls -ltra dist
+          # aws s3 cp dist s3://prod-bucket --recursive
 
