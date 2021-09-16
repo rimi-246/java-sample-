@@ -1,0 +1,33 @@
+# workflow name
+name: TEST-CI
+
+on:
+  # manually dispatch the workflow
+  workflow_dispatch:
+  
+  jobs:
+    # chose build name
+    build:
+    # select os
+    runs-on: ubuntu-latest
+   
+    steps:
+      
+      # checkout to a particular branch
+      - uses: actions/checkout@v2
+        with:
+          # branch name
+          ref: main
+
+      # get node js version
+      - uses: actions/setup-node@v2
+        name: Use Node.js
+        with:
+          # select node version
+          node-version: '14'
+      
+      # run the app
+      - name: running app
+        run: |
+          node index.js
+
